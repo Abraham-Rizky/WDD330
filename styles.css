@@ -1,10 +1,5 @@
-body {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  h1 {
-    background-color:black;
-    color: white;
-    padding: 1em;
-  }
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    height: 100%;
+    font-size: 2em !important;
+}
