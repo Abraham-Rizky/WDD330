@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Week 2 Team activity Solution</title>
+  </head>
+  <body>
+
+    <input type="number" id="myinput">
+    <button type="button" onClick="reader();">click Me!</button>
+
+    <button type="button" onClick="adding()">Add</button>
+    <input type="number" id="second">
+    <button type="button" onClick="subtract();" id="subtract">Subtract</button>
+
+    <div id="myid"></div>
+
+    <script> 
+        function reader(){
+            var input = document.getElementById("myinput").value;
+            var display = 0;
+            for(var i = 0; i <= input; i++){
+              display += i;
+            }
+
+            document.getElementById("myid").innerHTML = display;        
+            }
+    
+        function adding(){
+          var input = parseInt(document.getElementById("myinput").value);
+          var input2 = parseInt(document.getElementById("second").value);
+
+          var display = input + input2;
+          document.getElementById("myid").innerHTML = display; 
+        }
+
+        var subtractionResult = function subtract(){
+          var input = parseInt(document.getElementById("myinput").value);
+          var input2 = parseInt(document.getElementById("second").value);
+
+          var display = input - input2;
+          document.getElementById("myid").innerHTML = display; 
+        }
+
+        document.getElementById("subtract").onclick = subtractionResult;
+    </script>
+
+  </body>
+</html>
