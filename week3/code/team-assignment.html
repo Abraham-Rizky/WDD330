@@ -66,6 +66,7 @@
         'Biondo, Frank',
         'Birrell, Augustine',
         'Black, Elk',
+        'Bx, Test',
         'Blair, Robert',
         'Blair, Tony',
         'Blake, William'
@@ -108,7 +109,9 @@
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
-      const sortPeople = people.sort( (a,b) => (b.split(',') < a) );
+      //sort descending
+      //const sortPeople = people.reverse();
+      const sortPeople = people.sort();
       console.table(sortPeople);
 
       // 8. Reduce Exercise
@@ -129,6 +132,17 @@
         'car',
         'truck'
       ];
+
+      const sum = data.reduce((total, vehicles) => {
+        if (!total[vehicles]){
+          total[vehicles] = 0;
+        }
+        total[vehicles]++;
+        return total;
+      }, {}
+      
+      );
+      console.table(sum);
     </script>
   </body>
 </html>
