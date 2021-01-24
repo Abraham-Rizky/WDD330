@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic-Tac-Toe</title>
+    <style>
+      .flex-container{
+        display: flex;
+      }
+      td{
+        border: 1px solid #000000;
+        width: 100px;
+        height: 100px;
+      }
+      #firstTable th, #firstTable td{
+        border: 1px solid #ffffff;
+      }
+      #resetButton{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <table id="firstTable" style="text-align: right;">
+        <tr>
+          <th></th>
+        </tr>
+        <tr>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+        </tr>
+      </table>
+      <table id="secondTable" style="text-align: center;" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+        </tr>
+        <tr>
+          <td id="sample" onclick="startGame();" class="box"></td>
+          <td class="box"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <p>Player 1: <strong>X</strong></p>
+    <p>Player 2: <strong>O</strong></p>
+    <button onclick="reset()" id="resetButton" type="reset">Reset</button>
+    <script>
+      const myArray = ["X","O","X","O","X","O","X","O","X"];
+      let clicks = -1;
+      function startGame(){
+          document.getElementById("sample").innerHTML = myArray[clicks];
+          clicks++;
+      }
+    </script>
+    <script>startGame();reset();</script>
+  </body>
+</html>
