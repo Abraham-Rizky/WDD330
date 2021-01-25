@@ -9,8 +9,8 @@
       }
       td{
         border: 1px solid #000000;
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
       }
       #firstTable th, #firstTable td{
         border: 1px solid #ffffff;
@@ -36,26 +36,26 @@
           <td>3</td>
         </tr>
       </table>
-      <table id="secondTable" style="text-align: center;" cellpadding="0" cellspacing="0">
+      <table id="secondTable" style="text-align: center;" cellpadding="0" cellspacing="0" onclick="startGame(event)">
         <tr>
           <th>A</th>
           <th>B</th>
           <th>C</th>
         </tr>
         <tr>
-          <td id="sample" onclick="startGame();" class="box"></td>
-          <td class="box"></td>
-          <td></td>
+          <td id="A1"></td>
+          <td id="B1"></td>
+          <td id="C1"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="A2"></td>
+          <td id="B2"></td>
+          <td id="C2"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="A3"></td>
+          <td id="B3"></td>
+          <td id="C3"></td>
         </tr>
       </table>
     </div>
@@ -63,13 +63,20 @@
     <p>Player 2: <strong>O</strong></p>
     <button onclick="reset()" id="resetButton" type="reset">Reset</button>
     <script>
+      //Player 1 always start with "X" and player 2 with "O"
       const myArray = ["X","O","X","O","X","O","X","O","X"];
-      let clicks = -1;
-      function startGame(){
-          document.getElementById("sample").innerHTML = myArray[clicks];
-          clicks++;
+      let clicks = 0;
+
+      function startGame(event){
+        let cellId = event.target.id;
+        document.getElementById(cellId).innerHTML = myArray[clicks];
+        clicks++;
       }
+
+      function reset(){
+        location.reload();
+      }
+
     </script>
-    <script>startGame();reset();</script>
   </body>
 </html>
