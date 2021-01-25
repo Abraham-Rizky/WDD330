@@ -87,7 +87,7 @@
       //Player 1 always start with "X" and player 2 with "O"
       const myArray = ["X","O","X","O","X","O","X","O","X"];
       let clicks = 0;
-      const myMap = new Map();
+      const myResult = new Map();
 
       function startGame(event){
         let cellId = event.target.id;
@@ -95,8 +95,9 @@
 
         if (cellClass == "empty"){
           document.getElementById(cellId).innerHTML = myArray[clicks];
-          document.getElementById(cellId).className = "filled";
-          myMap.set(cellId, myArray[clicks]);
+          document.getElementById(cellId).className = myArray[clicks];
+          myResult.set(cellId, myArray[clicks]);
+          console.log(myResult);
           clicks++;
         } 
       }
@@ -104,6 +105,8 @@
       function reset(){
         location.reload();
       }
+
+
 
     </script>
   </body>
