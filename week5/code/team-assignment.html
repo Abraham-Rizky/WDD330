@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic-Tac-Toe</title>
+    <style>
+        .flex-container{
+            display: flex;
+        }
+        td{
+            border: 1px solid #000000;
+            width: 200px;
+            height: 200px;
+        }
+        #firstTable th, #firstTable td{
+            border: 1px solid #ffffff;
+        }
+        #resetButton{
+            display: block;
+        }
+
+        #secondTable td{
+            font-size: 3em;
+        }
+
+        #secondTable tr:nth-child(2) td {
+            border-top: #ffffff;
+        }
+
+        #secondTable tr:nth-child(4) td{
+            border-bottom: #ffffff;
+        }
+
+        #secondTable tr td:first-child{
+            border-left: #ffffff;
+        }
+
+        #secondTable tr td:last-child{
+            border-right: #ffffff;
+        }
+
+  
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <table id="firstTable" style="text-align: right;">
+        <tr>
+          <th></th>
+        </tr>
+        <tr>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+        </tr>
+      </table>
+      <table id="secondTable" style="text-align: center;" cellpadding="0" cellspacing="0" onclick="startGame(event)">
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+        </tr>
+        <tr>
+          <td id="A1" class="empty"></td>
+          <td id="B1" class="empty"></td>
+          <td id="C1" class="empty"></td>
+        </tr>
+        <tr>
+          <td id="A2" class="empty"></td>
+          <td id="B2" class="empty"></td>
+          <td id="C2" class="empty"></td>
+        </tr>
+        <tr>
+          <td id="A3" class="empty"></td>
+          <td id="B3" class="empty"></td>
+          <td id="C3" class="empty"></td>
+        </tr>
+      </table>
+    </div>
+    <p>Player 1: <strong>X</strong></p>
+    <p>Player 2: <strong>O</strong></p>
+    <button onclick="reset()" id="resetButton" type="reset">Reset</button>
+    <script>
+        //Player 1 always start with "X" and player 2 with "O"
+        const myArray = ["X","O","X","O","X","O","X","O","X"];
+        let clicks = 0;
+        const myResult = new Map();
+
+        function startGame(event){
+            let cellId = event.target.id;
+            let cellClass = event.target.className;
+
+            if (cellClass == 'empty'){
+                document.getElementById(cellId).innerHTML = myArray[clicks];
+                document.getElementById(cellId).className = myArray[clicks];
+                myResult.set(cellId, myArray[clicks]);
+                clicks++;
+            }
+            checkWinner();
+
+        }
+
+        function reset(){
+            location.reload();
+        }
+
+        function getValue(cellId){
+            return myResult.get(cellId);
+        }
+
+        function checkIfEmpty(cellId){
+            if (document.getElementById(cellId).className != 'empty'){
+                return true;
+            }
+        }
+
+        function checkWinner(){
+            if (checkIfEmpty('A1') && checkIfEmpty('B1') && checkIfEmpty('C1')){
+                if (getValue('A1') == getValue('B1') && getValue('A1') == getValue('C1')){
+                    if (getValue('A1') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('A2') && checkIfEmpty('B2') && checkIfEmpty('C2')){
+                if (getValue('A2') == getValue('B2') && getValue('A2') == getValue('C2')){
+                    if (getValue('A2') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('A3') && checkIfEmpty('B3') && checkIfEmpty('C3')){
+                if (getValue('A3') == getValue('B3') && getValue('A3') == getValue('C3')){
+                    if (getValue('A3') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('A1') && checkIfEmpty('A2') && checkIfEmpty('A3')){
+                if (getValue('A1') == getValue('A2') && getValue('A1') == getValue('A3')){
+                    if (getValue('A1') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('B1') && checkIfEmpty('B2') && checkIfEmpty('B3')){
+                if (getValue('B1') == getValue('B2') && getValue('B1') == getValue('B3')){
+                    if (getValue('B1') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('C1') && checkIfEmpty('C2') && checkIfEmpty('C3')){
+                if (getValue('C1') == getValue('C2') && getValue('C1') == getValue('C3')){
+                    if (getValue('C1') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('A1') && checkIfEmpty('B2') && checkIfEmpty('C3')){
+                if (getValue('A1') == getValue('B2') && getValue('A1') == getValue('C3')){
+                    if (getValue('A1') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else if (checkIfEmpty('C1') && checkIfEmpty('B2') && checkIfEmpty('A3')){
+                if (getValue('C1') == getValue('B2') && getValue('C1') == getValue('A3')){
+                    if (getValue('C1') == 'X'){
+                        alert('Player 1 wins!');
+                    } else {
+                        alert('Player 2 wins!');
+                    }
+                }
+            }
+            else{
+
+            }
+
+        }
+
+   
+    </script>  
+</html>
