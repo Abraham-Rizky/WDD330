@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  </head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">  </head>
 
   <body>
     <main class="container">
@@ -14,8 +15,25 @@
       <ul id="tasks" class="taskStyles list-group list-unstyled">
         <!-- your task list should be build here. -->
       </ul>
-    </main>
+      <div class="flex-row toggle-row">
+        <p>3 Task left</p>
+        <button class="btn btn-primary">        
+          <span class="material-icons">list</span>      
+        </button>
+        <button class="btn btn-danger">
+          <span class="material-icons">warning</span>      
+        </button>
+        <button class="btn btn-success">
+          <span class="material-icons">fact_check</span>      
 
+        </button>
+      </div>
+      <div class="input jumbotron">
+        <input type="text">
+        <button class="btn btn-success">+</button>
+      </div>
+
+    </main>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>
