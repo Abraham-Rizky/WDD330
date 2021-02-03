@@ -16,21 +16,22 @@
         <!-- your task list should be build here. -->
       </ul>
       <div class="flex-row toggle-row">
-        <p>3 Task left</p>
-        <button class="btn btn-primary">        
-          <span class="material-icons">list</span>      
-        </button>
-        <button class="btn btn-danger">
-          <span class="material-icons">warning</span>      
-        </button>
-        <button class="btn btn-success">
-          <span class="material-icons">fact_check</span>      
-
-        </button>
+        <p id="task-counter"></p>
+        <div>
+          <button class="btn btn-primary">        
+            <span class="material-icons">list</span>      
+          </button>
+          <button class="btn btn-danger">
+            <span class="material-icons">warning</span>      
+          </button>
+          <button class="btn btn-success">
+            <span class="material-icons">fact_check</span>  
+          </button>
+        </div>
       </div>
       <div class="input jumbotron">
-        <input type="text">
-        <button class="btn btn-success">+</button>
+        <input type="text" id="textbox">
+        <button class="btn btn-success" id="addTask">+</button>
       </div>
 
     </main>
