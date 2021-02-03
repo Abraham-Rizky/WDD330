@@ -146,11 +146,15 @@ function renderToDoList(parent, thisList) {
 function renderOneToDo(task) {
     console.log('renderOneToDo invoked');
     const oneTask = document.createElement('li');
+    oneTask.classList.add('flex-row');
+    oneTask.classList.add('list');
     task.completed ? oneTask.classList.toggle('completed') : '';
     oneTask.innerHTML = 
         `<input id="${task.id}" name="${task.content}" type="checkbox" value="none" ${task.completed ? 'checked' : ''}>
-        <label for="${task.id}">${task.content}</label>
-        <div class="remove">X</div>`;
+        <label for="${task.id}">${task.content}
+            <div id="tick_mark"></div>
+        </label>
+        <div class="remove btn btn-danger">X</div>`;
     return oneTask;
 }
 
