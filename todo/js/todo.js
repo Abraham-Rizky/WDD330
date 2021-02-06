@@ -183,12 +183,15 @@ function filterBy(category){
     switch(category){
         case 'filter-active':
             category = false;
+            document.getElementById("warning").textContent = "Active tasks";
             break;
         case 'filter-completed':
             category = true;
+            document.getElementById("warning").textContent = "Completed tasks";
             break;
         case 'filter-all':
             category = null;
+            document.getElementById("warning").textContent = "All tasks";
             break;
     }
     return category;
