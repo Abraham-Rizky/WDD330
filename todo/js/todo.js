@@ -136,6 +136,8 @@ function renderToDoList(parent, thisList) {
     })
     }else {
         const emptyList = document.createElement('li');
+        emptyList.classList.add('flex-row');
+        emptyList.classList.add('list');
         emptyList.innerHTML = `No Tasks Found`
         parent.appendChild(emptyList);
     }
