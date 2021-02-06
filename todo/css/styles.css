@@ -91,6 +91,13 @@ main h1{
     right: 5%;
 }
 
+.completed label{
+    text-decoration: line-through;
+    opacity: 0.5;
+    
+}
+
+
 
 
 
