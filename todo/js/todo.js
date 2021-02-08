@@ -1,5 +1,5 @@
 import * as localstorageData from './ls.js';
-import * as utilitiesData from './utilities.js';
+import * as util from './utilities.js';
 
 let toDoList = null; 
 
@@ -136,8 +136,8 @@ function renderToDoList(parent, thisList) {
     })
     }else {
         const emptyList = document.createElement('li');
-        emptyList.classList.add('flex-row');
-        emptyList.classList.add('list');
+        util.addClass(oneTask, "flex-row");
+        util.addClass(oneTask, "list");
         emptyList.innerHTML = `No Tasks Found`
         parent.appendChild(emptyList);
     }
@@ -148,8 +148,8 @@ function renderToDoList(parent, thisList) {
 function renderOneToDo(task) {
     console.log('renderOneToDo invoked');
     const oneTask = document.createElement('li');
-    oneTask.classList.add('flex-row');
-    oneTask.classList.add('list');
+    util.addClass(oneTask, "flex-row");
+    util.addClass(oneTask, "list");
     task.completed ? oneTask.classList.toggle('completed') : '';
     oneTask.innerHTML = 
         `<input id="${task.id}" name="${task.content}" type="checkbox" value="none" ${task.completed ? 'checked' : ''}>
