@@ -40,11 +40,11 @@ class commentModel {
 //create a standard UI for the comment form
 const commentForm = `
     <h3>Comments</h3>
-    <div class="comment_form">
+    <div class="comment_form container">
         <h4>Add a Comment</h4>
         <textarea id="user_comment" placeholder="Enter your comments here"></textarea>
         <br />
-        <button id="comment_submit">Add Comment</button>
+        <button id="comment_submit" class="btn btn-primary">Add Comment</button>
     </div>
     <ul class="comment_list" id="commentList"></ul>`;
 
@@ -68,7 +68,7 @@ function renderCommentList(parent, commentArray){
     commentArray.forEach(commObject => {
         let item = document.createElement('li');
         item.innerHTML = `
-            <h5>${formatDate(commObject.date)} &mdash; ${commObject.name}</h5>
+            <h5>${formatDate(commObject.date)} ( ${commObject.name} )</h5>
             <p class="comm-notes">${commObject.comment}</p>`; 
         parent.appendChild(item);
     });
