@@ -1,12 +1,12 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 
-:root{
+:root {
     --heading-font: 'Open Sans Condensed', Verdana, sans-serif;
     --paragraph-font: 'PT Serif', Georgia, serif;
 }
-body{
+
+body {
     font-family: Helvetica, Arial, sans-serif;
     height: 100%;
     font-size: 2em !important;
@@ -17,7 +17,12 @@ body{
     font-family: var(--paragraph-font) !important;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--heading-font) !important;
 }
 
@@ -29,26 +34,39 @@ a {
     color: white !important;
 }
 
-nav.jumbotron{
+nav.jumbotron {
     background-color: transparent;
 }
 
-.card{
+.card {
     padding: 2%;
     width: 300px !important;
-	height: 100%;
-	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
-	border-radius: 5px;
-	background-color: rgba(255, 255, 255, .15);
-	backdrop-filter: blur(5px);
+    height: 100%;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
     margin-bottom: 15px;
 }
 
-.btn{
+.card.container {
+    height: 425px;
+    display: grid;
+    align-content: space-between;
+}
+
+.btn {
     color: white !important;
 }
 
-.flex-container{
+.flex-container {
     display: flex;
     flex-direction: column;
+
+}
+
+@media screen and (min-width:768px) {
+    .flex-container{
+        flex-direction: row;
+    }
 }
