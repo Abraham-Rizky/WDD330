@@ -1,12 +1,12 @@
 // read data from ls
 
-export function readFromLs(key){
+export function readFromLS(key){
     let localArray = JSON.parse(localStorage.getItem(key));
     return localArray;
 }
 
 // write data from ls
 
-export function writeToLs(key, data){
+export function writeToLS(key, data){
     localStorage.setItem(key, JSON.stringify(data));
 }

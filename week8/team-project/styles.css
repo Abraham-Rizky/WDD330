@@ -1,64 +1,189 @@
-.hidden{
+@import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&family=Open+Sans&display=swap');
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #e89e10;
+    text-align: center;
+    font-family: 'Geostar Fill', cursive;
+}
+
+main {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+main::after {
+    background: url(./images/bb8_1.svg) no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 150px;
+    left: -25px;
+    z-index: -1;
+    margin-top: 20%;
+}
+
+button {
+    background-color: rgba(232, 158, 16, 1);
+    color: white;
+    font-size: .9em;
+    border: 1px solid #e89e10;
+    border-radius: 3px;
+    font-family: 'Geostar Fill', cursive;
+    cursor: pointer;
+    text-align: center;
+    padding: 1em;
+}
+
+.backbutton {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 1em;
+}
+
+.mainlist li {
+    padding: 0 .5em;
+    line-height: 2em;
+    text-align: left;
+}
+
+.full-detail li {
+    border: none;
+}
+
+.pagination {
+    text-align: center;
+    width: 100%;
+}
+
+.hide {
     display: none;
 }
 
-.flex-row{
-    display: flex;
-    flex-direction: row;
+.show {
+    display: block;
 }
 
-.image{
-    width: 50%;
+.active {
+    color: blue;
 }
 
-.light{
-    padding: 2%;
+.names:hover {
+    cursor: pointer;
 }
 
-.side-text {
-    padding: 5% 10%;
+#titles {
+    position: absolute;
+    width: 50vh;
+    height: 50em;
+    bottom: 0;
+    left: 50%;
+    margin-left: -7em;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: justify;
+    overflow: hidden;
+    transform-origin: 50% 100%;
+    transform: perspective(300px) rotateX(25deg);
+    z-index: -1;
 }
 
-body{
-    background-color: #ff7700 !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
+#titles:after {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 60%;
+    background-image: linear-gradient(top, rgba(0, 0, 0, 1) 0%, transparent 100%);
+    pointer-events: none;
 }
 
-.container {
-	width: 72% !important;
-	height: 100%;
-	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
-	border-radius: 5px;
-	background-color: rgba(255, 255, 255, .15);
-	backdrop-filter: blur(5px);
+#titlecontent {
+    position: absolute;
+    top: 100%;
+    animation: scroll 100s linear 4s infinite;
+    color: yellow;
 }
 
-.comment_form{
-    padding: 5%;
-    margin-bottom: 15px;
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: -170%;
+    }
 }
 
-#user_comment{
-    width: 100%;
-    height: 6em;
-}
-
-.comment_list{
-	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);	
-	border-radius: 5px;
-	background-color: rgba(255, 255, 255, .15);
-	backdrop-filter: blur(5px);
-    width: 100%;
-    padding: 5%;
-    font-size: 1.5em;
-}
-
-.comment_list li{
+ul#starwars {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.comment_list p{
-    padding-left: 10px;
+ul#starwars li {
+    background: #ecfcff;
+    box-shadow: #4df 0px 0px 0px 2px;
+    font-size: 1em;
+    /* line-height: 1.25em; */
+    padding: 0px;
+    padding-left: 0px;
+    margin: 16px 0px;
+    width: 50%;
+    border-radius: 0px 100px 100px 0px;
+    transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+    color: black;
+    opacity: 0.3;
+}
+
+ul#starwars li:hover {
+    box-shadow: #4df 0px 0px 20px 2px;
+    text-shadow: #4df 0px 0px 6px, #4df 0px 0px 10px;
+    opacity: 1;
+}
+
+ul#starwars li:hover {
+    width: 98%;
+    padding: 0px 16px 0px 0px;
+    color: black;
+    text-align: center;
+}
+
+ul#starwars li.green {
+    background: #e6ffe6;
+    box-shadow: #0F0 0px 0px 0px 2px;
+}
+
+ul#starwars li.green:hover {
+    box-shadow: #0F0 0px 0px 20px 2px;
+    text-shadow: #0F0 0px 0px 6px, #0F0 0px 0px 10px;
+}
+
+ul li.red {
+    background: #ffe6e6;
+    box-shadow: #F00 0px 0px 0px 2px;
+}
+
+ul li.red:hover {
+    box-shadow: #F00 0px 0px 20px 2px;
+    text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
 }

@@ -1,8 +1,9 @@
-import Hikes from './hikes.js';
+console.log('about to fetch a list of Star Wars characters');
+
+import StarWarsList from './starwars.js';
 
 //on load, grab the array and insert it into the page
-const myHike = new Hikes('hikes');
+const swPeople = new StarWarsList('starwars', 'people');
 window.addEventListener('load', () => {
-  myHike.showHikeList();
+  swPeople.init();
 });
-

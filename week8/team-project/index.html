@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Great Hikes - Part II</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      }
-      img {
-        max-width: 100%;
-      }
-    </style>
-  </head>
 
-  <body>
-    <main class="container">
-      <h1 class="jumbotron text-center">Great hikes</h1>
-      <ul id="hikes" class="hikeStyles list-group list-unstyled">
-        <!-- your hike list should be build here. -->
-      </ul>
-      <div id="comments_div"></div>
-    </main>
+<head>
+  <meta charset="utf-8" />
+  <title>Star Wars API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+  
+</head>
 
-    <script src="./main.js" type="module"></script>
-  </body>
+<body>
+  <main>
+
+    <h1>List of Characters</h1>
+    <nav>
+      
+    </nav>
+    <ul id="starwars" class="mainlist">
+      <!-- selected list to be applied here -->
+    </ul>
+    <div id="pages" class="pagination">
+      <button id="first">
+        <<</button> <button id="previous">Previous
+      </button>
+      <button id="next">Next</button>
+      <button id="last">>></button>
+    </div>
+    <div id="titles">
+      <div id="titlecontent">
+        <h2>Episode III</h2>
+        <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory
+          against the evil Galactic Empire.</p>
+        <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR,
+          an armored space station with enough power to destroy an entire planet.</p>
+        <p>Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the
+          stolen plans that can save her people and restore freedom to the galaxy…</p>
+
+      </div>
+    </div>
+  </main>
+  <script src="./main.js" type="module"></script>
+</body>
+
 </html>
