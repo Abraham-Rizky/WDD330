@@ -76,7 +76,7 @@ export default class StarWarsList {
         li.classList.add('full-detail');
         li.innerHTML = `
             <h2>${item.name}</h2>
-            <ul>
+            <ul id="details">
                 <li>Height: ${item.height} cm</li>
                 <li>Mass: ${item.mass} kg</li>
                 <li>Hair Color: ${item.hair_color}</li>

@@ -139,6 +139,7 @@ ul#starwars {
     padding: 0;
     margin: 0;
     min-height: 50vh;
+    min-width: 50vw;
 }
 
 ul#starwars li {
@@ -167,6 +168,17 @@ ul#starwars li:hover {
     padding: 0px 16px 0px 0px;
     color: black;
     text-align: center;
+}
+
+ul#starwars li.full-detail{
+    background: transparent;
+    width: 100%;
+    box-shadow: transparent 0px 0px 0px 2px;
+    opacity: 0.8;
+}
+
+ul#starwars li.full-detail{
+    opacity: 1;
 }
 
 ul#starwars li.green {
