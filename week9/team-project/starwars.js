@@ -1,11 +1,11 @@
 import * as localstorageData from './ls.js';
 
 //variables to be used by the class
-let pokedex;
+let starList;
 let thisPage = 1;
-const sw_url = 'https://pokeapi.co/api/v2/';
+const sw_url = 'https://swapi.dev/api/';
 
-export default class pokedexList {
+export default class StarWarsList {
     constructor(elementID, category){
         this.key = elementID;
         this.parentElement = document.getElementById(elementID);
@@ -13,16 +13,22 @@ export default class pokedexList {
         this.category = category;
         this.url = `${sw_url}${category}/?page=`;
     }
-
+    /*init(){
+        if(getStarWars(this.category).ok){
+            this.showFullList();
+        } else {
+            console.log('list did not initialize function');
+        };
+    }*/
     init(){
         console.log(`initializing data`);
         fetch(`${this.url}${thisPage}`)
         .then(response => response.json())
         .then(data => {
             localstorageData.writeToLS(this.key, data);
-            pokedex = [];
+            starList = [];
             data.results.forEach(element =>  {
-                pokedex.push(newPokemon(element));
+                starList.push(newPerson(element));
             })
             this.showFullList();
         });
@@ -34,8 +40,8 @@ export default class pokedexList {
         //clear the parent element
         container.innerHTML = '';
         //fill with the new list
-        let pokedexSort = pokedex.sort();
-        pokedexSort.forEach(element => {
+        let starListSort = starList.sort();
+        starListSort.forEach(element => {
             const li = document.createElement('li');
             li.innerHTML = `${element.name}`;
             li.classList.add('names');
@@ -57,7 +63,7 @@ export default class pokedexList {
         })
     }
     getItemByName(itemName) {
-        return pokedex.find(item => item.name === itemName);
+        return starList.find(item => item.name === itemName);
     }
     showOneItem(itemName){
         console.log(`showOneItem: ${itemName}`);
@@ -71,7 +77,12 @@ export default class pokedexList {
         li.innerHTML = `
             <h2>${item.name}</h2>
             <ul id="details">
-                <li>URL: ${item.url}</li>
+                <li>Height: ${item.height} cm</li>
+                <li>Mass: ${item.mass} kg</li>
+                <li>Hair Color: ${item.hair_color}</li>
+                <li>Skin Color: ${item.skin_color}</li>
+                <li>Eye Color: ${item.eye_color}</li>
+                <li>Gender: ${item.gender}</li>
             </ul>`;
 
         this.parentElement.appendChild(li);
@@ -118,7 +129,6 @@ export default class pokedexList {
         })
         document.getElementById('pages').classList.remove('hide');
     }
-
     buildBackButton(){
         const backButton = document.createElement("button");
         backButton.textContent = "Return to List";
@@ -129,11 +139,15 @@ export default class pokedexList {
     }
 }
 
-function newPokemon(pokemon){
-    
-    const newPokemon = {
-        name: pokemon.name,
-        url: pokemon.url,
+function newPerson(person){
+    const newPerson = {
+        name: person.name,
+        height: person.height,
+        hair_color: person.hair_color,
+        eye_color: person.eye_color,
+        gender: person.gender,
+        mass: person.mass,
+        skin_color: person.skin_color
     }
-    return newPokemon;
+    return newPerson;
 }

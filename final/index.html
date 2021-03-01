@@ -2,22 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>WDD 330 - Pokedex</title>
+    <meta charset="utf-8" />
+    <title>WDD331 Pokedex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./styles.css" />
-    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <img id="bannerImage" src="./assets/pokemon.png" alt="WDD 330 Pokedex">
+    <main>
+
+        <h1>List of Pokemon</h1>
+        <ul id="pokedex" class="mainlist">
+            <!-- selected list to be applied here -->
+        </ul>
+        <div id="pages" class="pagination">
+            <button id="first">First</button>
+            <button id="previous">Previous</button>
+            <button id="next">Next</button>
+            <button id="last">Last</button>
         </div>
-        <ul id="pokedex"></ul>
-    </div>
-    <script src="./pokemon.js"></script>
+    </main>
+    <script src="./main.js" type="module"></script>
 </body>
 
 </html>
