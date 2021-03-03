@@ -7,7 +7,7 @@
 @font-face {
     font-family: 'star_jediregular';
     src: url('starjedi-webfont.woff2') format('woff2'),
-         url('starjedi-webfont.woff') format('woff');
+        url('starjedi-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -20,12 +20,13 @@ h4,
 h5 {
     color: #e89e10;
     text-align: center;
-    font-family: 'star_jediregular','Geostar Fill', cursive;
+    font-family: 'star_jediregular', 'Geostar Fill', cursive;
 }
 
-nav{
+nav {
     height: 50vh;
 }
+
 main {
     width: 100%;
     max-width: 400px;
@@ -34,7 +35,7 @@ main {
     height: 100%;
 }
 
-body{
+body {
     background: url(./images/main-background.jpg) no-repeat;
     background-position: center;
     background-size: cover;
@@ -52,14 +53,14 @@ main.char-list::after {
     background-size: contain;
     position: absolute;
     content: "";
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     left: -25px;
     z-index: -1;
     margin-top: 5%;
 }
 
-.logo{
+.logo {
     padding: 2%;
     width: 100%;
     height: 150px;
@@ -76,13 +77,13 @@ main.char-list::after {
     background-size: contain;
 }
 
-.navigation{
+.navigation {
     @include flex-container(column);
     align-items: center;
     margin-top: 50px;
 }
 
-.navigation a{
+.navigation a {
     background-color: black;
     border: 3px solid yellow;
     color: white;
@@ -91,11 +92,11 @@ main.char-list::after {
     margin-bottom: 15px;
     padding: 2% 0;
     border-radius: 10px;
-    font-family: 'star_jediregular','Geostar Fill', cursive;
+    font-family: 'star_jediregular', 'Geostar Fill', cursive;
     text-decoration: none;
 }
 
-.navigation a:hover{
+.navigation a:hover {
     color: red;
     cursor: pointer;
 }
@@ -117,7 +118,7 @@ button {
     text-align: center;
 }
 
-.home-btn{
+.home-btn {
     color: white;
     text-decoration: none;
 }
@@ -175,7 +176,7 @@ ul {
     z-index: -1;
 }
 
-#titles h2{
+#titles h2 {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -248,14 +249,14 @@ ul#starwars li:hover {
     text-align: center;
 }
 
-ul#starwars li.full-detail{
+ul#starwars li.full-detail {
     background: transparent;
     width: 100%;
     box-shadow: transparent 0px 0px 0px 2px;
     opacity: 0.8;
 }
 
-ul#starwars li.full-detail{
+ul#starwars li.full-detail {
     opacity: 1;
 }
 
@@ -279,8 +280,38 @@ ul li.red:hover {
     text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
 }
 
-//char page
-.char-list h1{
+//page title
+.char-list h1,
+.trivia-list h1 {
     font-size: 2em;
     padding: 5% 0;
+}
+
+//trivia CSS
+.dojo {
+    height: 70vh;
+    padding: 2%;
+    width: 100%;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    margin-top: 25px
+}
+
+#response {
+    @include flex-container(column);
+    height: 300px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.quiz-body header, #info, #result{
+    margin-bottom: 25px;
+}
+
+#start{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
