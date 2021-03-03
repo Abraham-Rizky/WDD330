@@ -28,7 +28,7 @@ nav{
 }
 main {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     position: relative;
     height: 100%;
@@ -56,7 +56,7 @@ main.char-list::after {
     height: 150px;
     left: -25px;
     z-index: -1;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 .logo{
@@ -79,7 +79,7 @@ main.char-list::after {
 .navigation{
     @include flex-container(column);
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .navigation a{
@@ -87,7 +87,7 @@ main.char-list::after {
     border: 3px solid yellow;
     color: white;
     width: 50%;
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-bottom: 15px;
     padding: 2% 0;
     border-radius: 10px;
@@ -103,17 +103,23 @@ main.char-list::after {
 button {
     background-color: rgba(232, 158, 16, 1);
     color: white;
-    font-size: .9em;
+    font-size: 1em;
     border: 1px solid #e89e10;
     border-radius: 3px;
-    font-family: 'Geostar Fill', cursive;
+    font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     text-align: center;
-    padding: 1em;
+    padding: 2% 5%;
+    font-weight: bold;
 }
 
 .backbutton {
     text-align: center;
+}
+
+.home-btn{
+    color: white;
+    text-decoration: none;
 }
 
 ul {
@@ -225,7 +231,7 @@ ul#starwars li {
     border-radius: 0px 100px 100px 0px;
     transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
     color: black;
-    opacity: 0.3;
+    opacity: 0.8;
 }
 
 ul#starwars li:hover {
@@ -270,4 +276,10 @@ ul li.red {
 ul li.red:hover {
     box-shadow: #F00 0px 0px 20px 2px;
     text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
+}
+
+//char page
+.char-list h1{
+    font-size: 2em;
+    padding: 5% 0;
 }
