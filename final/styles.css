@@ -360,8 +360,11 @@ ul li.red:hover {
   align-items: center;
 }
 
-.quiz-body header, #info, #result {
+.quiz-body header,
+#info,
+#result {
   margin-bottom: 25px;
+  justify-content: center;
 }
 
 #start {
