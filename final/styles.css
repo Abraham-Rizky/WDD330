@@ -120,7 +120,7 @@ main.char-list::after {
   background-image: url(./images/darth-vader.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 80%;
 }
 
 .navigation {
