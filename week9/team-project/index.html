@@ -2,61 +2,100 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Star Wars API</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./styles.css" />
-
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main>
 
-    <h1>List of Characters</h1>
-    <nav>
 
-    </nav>
-    <ul id="starwars" class="mainlist">
-      <!-- selected list to be applied here -->
-    </ul>
-    <div id="pages" class="pagination">
-      <button id="first">
-        <<</button> <button id="previous">Previous
-      </button>
-      <button id="next">Next</button>
-      <button id="last">>></button>
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
     </div>
-    <div id="titles">
-      <div id="titlecontent">
-        <h2>Episode IV</h2>
-        <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory
-          against the evil Galactic Empire.</p>
-        <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR,
-          an armored space station with enough power to destroy an entire planet.</p>
-        <p>Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the
-          stolen plans that can save her people and restore freedom to the galaxy…</p>
-        <h2>Episode V</h2>
-        <p>It is a dark time for the Rebellion. Although the Death Star has been destroyed, Imperial troops have driven
-          the Rebel forces from their hidden base and pursued them across the galaxy.</p>
-        <p>Evading the dreaded Imperial Starfleet, a group of freedom fighters led by Luke Skywalker has established a
-          new secret base on the remote ice world of Hoth.
-        </p>
-        <p>The evil lord Darth Vader, obsessed with finding young Skywalker, has dispatched thousands of remote probes
-          into the far reaches of space….
-        </p>
-        <h2>Episode VI</h2>
-        <p>Luke Skywalker has returned to his home planet of Tatooine in an attempt to rescue his friend Han Solo from
-          the clutches of the vile gangster Jabba the Hutt.</p>
-        <p>Little does Luke know that the GALACTIC EMPIRE has secretly begun construction on a new armored space station
-          even more powerful than the first dreaded Death Star.
-        </p>
-        <p>When completed, this ultimate weapon will spell certain doom for the small band of rebels struggling to
-          restore freedom to the galaxy...
-        </p>
-      </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
     </div>
-  </main>
-  <script src="./main.js" type="module"></script>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+  <script>
+    function playSound(e) {
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      key.id = key;
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play();
+      key.classList.add('playing');
+      moveDown(key);
+    }
+
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') return;
+      this.classList.remove('playing');
+    }
+
+    function moveDown(key) {
+      let margin = key.currentStyle || window.getComputedStyle(key);
+      margin = parseFloat(margin.marginTop);
+
+      if (margin < (startMargin + 100)) {
+        margin += 10;
+        key.style.marginTop = `${margin}px`;
+      } else {
+        key.style.marginTop = `${startMargin}px`;
+      }
+    }
+
+    const keys = document.querySelectorAll('.key');
+    const startMargin = parseFloat((keys[0].currentStyle || window.getComputedStyle(keys[0])).marginTop);
+
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    window.addEventListener('keydown', playSound);
+  </script>
+
+
 </body>
 
 </html>

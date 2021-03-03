@@ -1,10 +1,16 @@
+@import './partials/reset';
 @import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&family=Open+Sans&display=swap');
+@import './partials/layout';
+@import './partials/prefix-mixins';
 
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
+//using custom Star Wars font
+@font-face {
+    font-family: 'star_jediregular';
+    src: url('starjedi-webfont.woff2') format('woff2'),
+         url('starjedi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 h1,
@@ -14,9 +20,12 @@ h4,
 h5 {
     color: #e89e10;
     text-align: center;
-    font-family: 'Geostar Fill', cursive;
+    font-family: 'star_jediregular','Geostar Fill', cursive;
 }
 
+nav{
+    height: 50vh;
+}
 main {
     width: 100%;
     max-width: 500px;
@@ -24,7 +33,19 @@ main {
     position: relative;
 }
 
-main::after {
+body{
+    background: url(./images/main-background.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    height: 97vh;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+main.char-list::after {
     background: url(./images/bb8_1.svg) no-repeat;
     background-position: bottom;
     background-size: contain;
@@ -37,6 +58,26 @@ main::after {
     margin-top: 20%;
 }
 
+.logo{
+    padding: 2%;
+    width: 100%;
+    height: 150px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(./images/darth-vader.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.navigation{
+    @include flex-container(column);
+}
 button {
     background-color: rgba(232, 158, 16, 1);
     color: white;

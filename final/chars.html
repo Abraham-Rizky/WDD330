@@ -3,23 +3,29 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Star Wars App</title>
+  <title>Star Wars Characters</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./styles.css" />
 
 </head>
 
 <body>
-  <main class="main-page">
-    <div class="logo">
-      <!-- <img src="/images/darth-vader.svg" alt="Star Wars Logo"> -->
-      <audio id="my_audio" src="./audio/give-yourself.mp3"></audio>
-    </div>
-    <nav class="navigation">
-      <a>List of Characters</a>
-      <a>Trivia Game</a>
-      <a>Space Shooters</a>
+  <main class="char-list">
+
+    <h1>List of Characters</h1>
+    <nav>
+
     </nav>
+    <ul id="starwars" class="mainlist">
+      <!-- selected list to be applied here -->
+    </ul>
+    <div id="pages" class="pagination">
+      <button id="first">
+        <<</button> <button id="previous">Previous
+      </button>
+      <button id="next">Next</button>
+      <button id="last">>></button>
+    </div>
     <div id="titles">
       <div id="titlecontent">
         <h2>Episode IV</h2>
@@ -51,11 +57,6 @@
     </div>
   </main>
   <script src="./main.js" type="module"></script>
-  <script>
-    window.onload = function () {
-      document.getElementById("my_audio").play();
-    }
-  </script>
 </body>
 
 </html>
