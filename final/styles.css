@@ -278,7 +278,8 @@ ul#starwars li {
   padding: 0px;
   padding-left: 15px;
   margin: 16px 0px;
-  width: 50%;
+  width: 60%;
+  max-width: 400px;
   border-radius: 0px 100px 100px 0px;
   transition: width 0.2s ease, padding 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
   color: black;

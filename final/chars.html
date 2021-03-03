@@ -23,8 +23,32 @@
       <button id="next">Next</button>
       <button id="last">>></button>
     </div>
+    <audio id="mySoundClip">
+      <source src="./audio/others/bb8_beep_beep.mp3">
+      </source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
   </main>
   <script src="./main.js" type="module"></script>
+  <script>
+    window.onload = function () {
+      var audionameslist = "./audio/others/bb8_beep_beep.mp3";
+      var audionamesarray = audionameslist.split(',');
+      var audio = new Audio(audionamesarray[0]);
+
+      audio.src = audionamesarray[0];
+      audio.play();
+
+      index = 0;
+      audio.onended = function () {
+        if (index < audionamesarray.length) {
+          audio.src = audionamesarray[index + 1];
+          audio.play();
+          index++;
+        }
+      };
+    }
+  </script>
 </body>
 
 </html>
