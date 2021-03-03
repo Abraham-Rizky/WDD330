@@ -78,13 +78,14 @@ main {
   max-width: 500px;
   margin: 0 auto;
   position: relative;
+  height: 100%;
 }
 
 body {
   background: url(./images/main-background.jpg) no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: black;
+  background-color: #0C0C0C;
   height: 97vh;
   color: white;
   font-family: "Open Sans", sans-serif;
@@ -130,6 +131,26 @@ main.char-list::after {
   -webkit-flex-flow: column nowrap;
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.navigation a {
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+  width: 50%;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  padding: 2% 0;
+  border-radius: 10px;
+  font-family: "star_jediregular", "Geostar Fill", cursive;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: red;
+  cursor: pointer;
 }
 
 button {
@@ -201,6 +222,10 @@ ul {
   z-index: -1;
 }
 
+#titles h2 {
+  font-family: "Open Sans", sans-serif;
+}
+
 #titles:after {
   position: absolute;
   content: " ";
@@ -217,6 +242,10 @@ ul {
   top: 100%;
   animation: scroll 100s linear 4s infinite;
   color: yellow;
+}
+
+.margin-bottom-scrolling {
+  margin-bottom: 150px;
 }
 
 @keyframes scroll {

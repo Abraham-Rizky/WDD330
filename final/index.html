@@ -15,11 +15,7 @@
       <!-- <img src="/images/darth-vader.svg" alt="Star Wars Logo"> -->
       <audio id="my_audio" src="./audio/give-yourself.mp3"></audio>
     </div>
-    <nav class="navigation">
-      <a>List of Characters</a>
-      <a>Trivia Game</a>
-      <a>Space Shooters</a>
-    </nav>
+
     <div id="titles">
       <div id="titlecontent">
         <h2>Episode IV</h2>
@@ -27,7 +23,8 @@
           against the evil Galactic Empire.</p>
         <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR,
           an armored space station with enough power to destroy an entire planet.</p>
-        <p>Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the
+        <p class="margin-bottom-scrolling">Pursued by the Empire’s sinister agents, Princess Leia races home aboard her
+          starship, custodian of the
           stolen plans that can save her people and restore freedom to the galaxy…</p>
         <h2>Episode V</h2>
         <p>It is a dark time for the Rebellion. Although the Death Star has been destroyed, Imperial troops have driven
@@ -35,7 +32,8 @@
         <p>Evading the dreaded Imperial Starfleet, a group of freedom fighters led by Luke Skywalker has established a
           new secret base on the remote ice world of Hoth.
         </p>
-        <p>The evil lord Darth Vader, obsessed with finding young Skywalker, has dispatched thousands of remote probes
+        <p class="margin-bottom-scrolling">The evil lord Darth Vader, obsessed with finding young Skywalker, has
+          dispatched thousands of remote probes
           into the far reaches of space….
         </p>
         <h2>Episode VI</h2>
@@ -44,16 +42,43 @@
         <p>Little does Luke know that the GALACTIC EMPIRE has secretly begun construction on a new armored space station
           even more powerful than the first dreaded Death Star.
         </p>
-        <p>When completed, this ultimate weapon will spell certain doom for the small band of rebels struggling to
+        <p class="margin-bottom-scrolling">When completed, this ultimate weapon will spell certain doom for the small
+          band of rebels struggling to
           restore freedom to the galaxy...
         </p>
       </div>
     </div>
+
+    <nav class="navigation" id="navbar">
+      <a href="/chars.html">List of Characters</a>
+      <a>Trivia Game</a>
+      <a>Space Shooters</a>
+    </nav>
+
+    <audio id="mySoundClip">
+      <source src="./audio/others/light-saber-swing-1.mp3">
+      </source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
   </main>
   <script src="./main.js" type="module"></script>
   <script>
     window.onload = function () {
-      document.getElementById("my_audio").play();
+      var audionameslist = "./audio/give-yourself.mp3,./audio/theme-song.mp3";
+      var audionamesarray = audionameslist.split(',');
+      var audio = new Audio(audionamesarray[0]);
+
+      audio.src = audionamesarray[0];
+      audio.play();
+
+      index = 0;
+      audio.onended = function () {
+        if (index < audionamesarray.length) {
+          audio.src = audionamesarray[index + 1];
+          audio.play();
+          index++;
+        }
+      };
     }
   </script>
 </body>
