@@ -330,6 +330,14 @@ ul li.red:hover {
   text-shadow: #F00 0px 0px 6px, #F00 0px 0px 10px;
 }
 
+#details li:hover {
+  cursor: pointer;
+}
+
+#details-name {
+  font-size: 1.5em;
+}
+
 .char-list h1,
 .trivia-list h1 {
   font-size: 2em;

@@ -6,7 +6,7 @@ let thisPage = 1;
 const sw_url = 'https://swapi.dev/api/';
 
 export default class StarWarsList {
-    constructor(elementID, category){
+    constructor(elementID, category) {
         this.key = elementID;
         this.parentElement = document.getElementById(elementID);
         this.backButton = this.buildBackButton();
@@ -20,20 +20,20 @@ export default class StarWarsList {
             console.log('list did not initialize function');
         };
     }*/
-    init(){
+    init() {
         console.log(`initializing data`);
         fetch(`${this.url}${thisPage}`)
-        .then(response => response.json())
-        .then(data => {
-            localstorageData.writeToLS(this.key, data);
-            starList = [];
-            data.results.forEach(element =>  {
-                starList.push(newPerson(element));
-            })
-            this.showFullList();
-        });
+            .then(response => response.json())
+            .then(data => {
+                localstorageData.writeToLS(this.key, data);
+                starList = [];
+                data.results.forEach(element => {
+                    starList.push(newPerson(element));
+                })
+                this.showFullList();
+            });
     }
-    showFullList(){
+    showFullList() {
         const data = localstorageData.readFromLS(this.key);
         console.log(`showFullList initialized`);
         const container = this.parentElement;
@@ -58,14 +58,14 @@ export default class StarWarsList {
         console.log(listArr);
         listArr.forEach(item => {
             item.addEventListener('click', event => {
-            this.showOneItem(event.currentTarget.innerText);
+                this.showOneItem(event.currentTarget.innerText);
             })
         })
     }
     getItemByName(itemName) {
         return starList.find(item => item.name === itemName);
     }
-    showOneItem(itemName){
+    showOneItem(itemName) {
         console.log(`showOneItem: ${itemName}`);
         const item = this.getItemByName(itemName);
         //this.parentElement.appendChild(renderOneItemFull(item));
@@ -75,21 +75,21 @@ export default class StarWarsList {
         const li = document.createElement('li');
         li.classList.add('full-detail');
         li.innerHTML = `
-            <h2>${item.name}</h2>
+            <h2 id="details-name">${item.name}</h2>
             <ul id="details">
-                <li>Height: ${item.height} cm</li>
-                <li>Mass: ${item.mass} kg</li>
-                <li>Hair Color: ${item.hair_color}</li>
-                <li>Skin Color: ${item.skin_color}</li>
-                <li>Eye Color: ${item.eye_color}</li>
-                <li>Gender: ${item.gender}</li>
+                <li onmouseover="PlaySound('saberSound')" onmouseout="StopSound('saberSound')">Height: ${item.height} cm</li>
+                <li onmouseover="PlaySound('saberSound')" onmouseout="StopSound('saberSound')">Mass: ${item.mass} kg</li>
+                <li onmouseover="PlaySound('saberSound')" onmouseout="StopSound('saberSound')">Hair Color: ${item.hair_color}</li>
+                <li onmouseover="PlaySound('saberSound')" onmouseout="StopSound('saberSound')">Skin Color: ${item.skin_color}</li>
+                <li onmouseover="PlaySound('saberSound')" onmouseout="StopSound('saberSound')">Eye Color: ${item.eye_color}</li>
+                <li onmouseover="PlaySound('saberSound')" onmouseout="StopSound('saberSound')">Gender: ${item.gender}</li>
             </ul>`;
 
         this.parentElement.appendChild(li);
         this.backButton.classList.remove('hide');
         document.getElementById('pages').classList.add('hide');
     }
-    buildPagination(data){
+    buildPagination(data) {
         console.log(`building pagination`)
         const lastPage = Math.ceil(data.count / 10);
         console.log(lastPage);
@@ -98,29 +98,27 @@ export default class StarWarsList {
         console.log(listArr);
         listArr.forEach(item => {
             item.onclick = (event) => {
-                if(event.currentTarget.id == 'first'){
+                if (event.currentTarget.id == 'first') {
                     console.log('heading to First page');
-                    if(thisPage != 1){
+                    if (thisPage != 1) {
                         thisPage = 1;
                         this.init();
-                    }  
-                } else if (event.currentTarget.id == 'previous'){
+                    }
+                } else if (event.currentTarget.id == 'previous') {
                     console.log('heading to Previous page');
-                    if(thisPage !=1){
+                    if (thisPage != 1) {
                         thisPage -= 1;
                         this.init();
                     }
-                }
-                else if (event.currentTarget.id == 'next'){
+                } else if (event.currentTarget.id == 'next') {
                     console.log('heading to Next page');
-                    if(thisPage != lastPage){
+                    if (thisPage != lastPage) {
                         thisPage += 1;
                         this.init();
                     }
-                }
-                else if (event.currentTarget.id == 'last'){
+                } else if (event.currentTarget.id == 'last') {
                     console.log('heading to Last page');
-                    if(thisPage != lastPage){
+                    if (thisPage != lastPage) {
                         thisPage = lastPage;
                         this.init();
                     }
@@ -129,17 +127,19 @@ export default class StarWarsList {
         })
         document.getElementById('pages').classList.remove('hide');
     }
-    buildBackButton(){
+    buildBackButton() {
         const backButton = document.createElement("button");
         backButton.textContent = "Return to List";
-        backButton.onclick = () => {this.showFullList();};
+        backButton.onclick = () => {
+            this.showFullList();
+        };
         backButton.classList.add('back-button');
         this.parentElement.after(backButton);
         return backButton;
     }
 }
 
-function newPerson(person){
+function newPerson(person) {
     const newPerson = {
         name: person.name,
         height: person.height,
