@@ -72,7 +72,7 @@ const game = {
     this.score = 0;
     this.questions = [...quiz];
     view.setup();
-    this.secondsRemaining = 30;
+    this.secondsRemaining = 60;
     this.timer = setInterval( this.countdown , 1000 );
     this.ask();
   },
@@ -88,7 +88,7 @@ const game = {
     if(this.questions.length > 2) {
       shuffle(this.questions);
       this.question = this.questions.pop();
-      const options = [this.questions[0].answer, this.questions[1].answer, this.question.answer];
+      const options = [this.question.option[0], this.question.option[1], this.question.answer];
       shuffle(options);
       const question = `${this.question.question}`;
       view.render(view.question,question);
