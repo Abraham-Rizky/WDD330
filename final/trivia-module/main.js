@@ -83,14 +83,14 @@ const game = {
         game.gameOver();
       }
   },
-  ask(name){
+  ask(question){
     console.log('ask() invoked');
     if(this.questions.length > 2) {
       shuffle(this.questions);
       this.question = this.questions.pop();
-      const options = [this.questions[0].realName, this.questions[1].realName, this.question.realName];
+      const options = [this.questions[0].answer, this.questions[1].answer, this.question.answer];
       shuffle(options);
-      const question = `What is ${this.question.name}'s real name?`;
+      const question = `${this.question.question}`;
       view.render(view.question,question);
       view.render(view.response,view.buttons(options));
     }
@@ -101,7 +101,7 @@ const game = {
   check(event){
     console.log('check(event) invoked');
     const response = event.target.textContent;
-    const answer = this.question.realName;
+    const answer = this.question.answer;
     if(response === answer){
       console.log('correct');
       view.render(view.result,'Correct!',{'class':'correct'});
