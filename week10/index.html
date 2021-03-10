@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WDD 330 portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <nav class="jumbotron text-center">
+    <h1>WDD 330 Portfolio</h1>
+    <h2>Week 10</h2>
+  </nav>
+
+  <div class="container">
+    <button class="btn btn-lg btn-primary"><a href="../index.html" style="color: #fff;">Home</a></button>
+    <h3>Notes</h3><br>
+    <ol>
+      <li>Client side validation is like an initial check to catch invalid data on the client side which help the users
+        so they may fix it right away</li>
+      <li>A couple ways to do client side validation are built-in form validation using HTML 5 and JavaScript</li>
+      <li>A regular expression (regex) is a pattern that can be used to match character combinations in text strings, so
+        regexps are ideal for form validation and serve a variety of other uses in JavaScript</li>
+      <li>fetch() won’t reject on HTTP error status even if the response is an HTTP 404 or 500. Instead, it will resolve
+        normally (with ok status set to false), and it will only reject on network failure or if anything prevented the
+        request from completing</li>
+      <li>fetch() won’t send cross-origin cookies unless you set the credentials init option</li>
+      <li>An accurate check for a successful fetch() would include checking that the promise resolved, then checking
+        that the Response.ok property has a value of true</li>
+      <li>Instead of passing a path to the resource we want to request into the fetch() call, we can create a request
+        object using the Request() constructor, and pass that in as a fetch() method argument</li>
+    </ol>
+  </div>
+  <div class="container">
+    <h3>Questions:</h3>
+    <ol>
+      <li>I am wondering how to create an API with credentials so only everyone who has the right credentials can access
+        my API</li>
+      <li>I still don’t understand about Fetch Polyfill</li>
+    </ol>
+  </div>
+  <div class="container">
+    <h3>Team Assignment Code</h3>
+    <ol>
+      <li>
+        <a href="team-project/index.html">Quakes</a>
+      </li>
+    </ol>
+  </div>
+</body>
+
+</html>

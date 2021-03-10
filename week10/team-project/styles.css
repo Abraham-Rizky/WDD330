@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Frijole&family=Open+Sans&display=swap');
+
+body {
+    background-image: url(./images/Rainbow-Vortex.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+main {
+    max-width: 500px;
+    height: 100%;
+    min-height: 100vh;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+    color: black;
+    padding: 2%;
+}
+
+h1 {
+    font-family: 'Frijole', cursive !important;
+}
+
+#quakeList{
+    margin: 0;
+    padding: 0;
+    margin-top: 25px;
+}
+
+#quakeList li {
+    list-style-type: none;
+    margin-bottom: 25px;
+}
+
+#quakeList li::first-letter {
+    text-transform: uppercase;
+}
+
+#quakeList li:nth-child(even){
+    color: wheat;
+}
+#quakeList li:nth-child(odd){
+    color: white;
+}
