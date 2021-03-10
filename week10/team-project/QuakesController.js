@@ -59,11 +59,13 @@ export default class QuakesController {
     return dateString;
   }
 
-  async getQuakesByRadius(radius = 100) {
+  async getQuakesByRadius(radius) {
     // this method provides the glue between the model and view. Notice it first goes out and requests the appropriate data from the model, then it passes it to the view to be rendered.
     //set loading message
     this.btn.classList.add('hidden');
     this.parentElement.innerHTML = 'Loading...';
+    radius = parseInt(document.getElementById('kmRadius').value);
+
     // get the list of quakes in the specified radius of the location
     const quakeList = await this.quakes.getEarthQuakesByRadius(
       this.position, radius, this.start, this.end
