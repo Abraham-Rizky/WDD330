@@ -12,23 +12,36 @@
 <body>
     <main>
         <h1>Quake List</h1>
+        <p id="demo">200</p>
         <fieldset>
             <p>Start Date: <input type="date" id="startDate" value="2021-01-01"></p>
             <p>End Date: <input type="date" id="endDate" value="2021-12-31"></p>
-            <p>Quakes Within <select id="kmRadius" name="km_radius">
+            <p>Quakes Within <select id="kmRadius" name="kmRadius">
                     <option value="200">200</option>
                     <option value="150">150</option>
-                    <option value="100" selected>100</option>
+                    <option value="100">100</option>
                     <option value="50">50</option>
                     <option value="20">20</option>
                     <option value="10">10</option>
                     <option value="5">5</option>
                 </select> km</p>
-            <p><button id="btn_reload" onclick="window.location.reload();" class="btn btn-success">Find Quakes</button></p> <!-- TO DO-->
+            <p><button id="btn_reload" onclick="myFunction();" class="btn btn-success">Find
+                    Quakes</button>
+            </p> <!-- TO DO-->
         </fieldset>
         <ul id="quakeList"></ul>
     </main>
 </body>
 <script src="index.js" type="module"></script>
 <script src="Quake.js" type="module"></script>
+<script>
+    const x = document.getElementById("kmRadius").selectedIndex;
+
+    function myFunction() {
+        const x = document.getElementById("kmRadius").selectedIndex;
+        const y = document.getElementById("kmRadius").options;
+        document.getElementById("demo").innerHTML = y[x].text;
+    }
+</script>
+
 </html>
