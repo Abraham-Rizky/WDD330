@@ -162,7 +162,7 @@ body {
 	height: 200px;
 	border-radius: 75px;	
 	left: 0; top: -200px;
-	background: url(http://andreypokrovskiy.com/image_hosting/boredom/planet2.png) no-repeat;
+	background: url(./assets/images/planet2.png) no-repeat;
 	z-index: 50;
 }
 
@@ -172,7 +172,7 @@ body {
 	height: 200px;
 	border-radius: 75px;	
 	left: 0; top: -200px;
-	background: url(http://andreypokrovskiy.com/image_hosting/boredom/planet3.png) no-repeat;
+	background: url(./assets/images/planet3.png) no-repeat;
 	z-index: 50;
 }
 
@@ -184,7 +184,7 @@ body {
 	left: 0; top: -500px;
 	z-index: 100;
 
-	background: url(http://andreypokrovskiy.com/image_hosting/boredom/planet1.png) no-repeat center; 
+	background: url(./assets/images/planet1.png) no-repeat center; 
 }
 
 .asteroid {
@@ -195,7 +195,7 @@ body {
 	left: 0; top: -65px;
 	z-index: 100;
 
-	background: url(http://andreypokrovskiy.com/image_hosting/boredom/asteroid1.png) no-repeat center; 
+	background: url(./assets/images/asteroid1.png) no-repeat center; 
 }
 
 
