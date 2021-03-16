@@ -20,8 +20,33 @@
                 <div class="inside-bar"></div>
             </div>
         </div>
+        <audio id="wrongAnswer">
+            <source src="../shooter-module/assets/sounds/theme-song.mp3">
+            </source>
+            Your browser isn't invited for super fun audio time.
+        </audio>
     </main>
     <script src="./main.js" type="module"></script>
+    <script>
+        window.onload = function () {
+            var audionameslist = "../shooter-module/assets/sounds/theme-song.mp3";
+            var audionamesarray = audionameslist.split(',');
+            var audio = new Audio(audionamesarray[0]);
+
+            audio.src = audionamesarray[0];
+            audio.loop = true;
+            audio.play();
+
+            index = 0;
+            audio.onended = function () {
+                if (index < audionamesarray.length) {
+                    audio.src = audionamesarray[index + 1];
+                    audio.play();
+                    index++;
+                }
+            };
+        }
+    </script>
 </body>
 
 </html>

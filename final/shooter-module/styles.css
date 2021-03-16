@@ -116,9 +116,9 @@ body {
 }
 .enemy-bullet {
 	position: absolute;
-	width: 5px;
-	height: 5px;	
-	border-radius: 3px;
+	width: 7px;
+	height: 7px;	
+	border-radius: 4px;
 	background: green;
 	z-index: 900;
 }
