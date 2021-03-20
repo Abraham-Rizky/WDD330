@@ -13,13 +13,6 @@ export default class StarWarsList {
         this.category = category;
         this.url = `${sw_url}${category}/?page=`;
     }
-    /*init(){
-        if(getStarWars(this.category).ok){
-            this.showFullList();
-        } else {
-            console.log('list did not initialize function');
-        };
-    }*/
     init() {
         console.log(`initializing data`);
         fetch(`${this.url}${thisPage}`)

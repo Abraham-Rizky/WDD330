@@ -223,6 +223,16 @@ var boreDOM = {
 
     triggerExplosion: function (topPosition, lefPosition, playerShip) {
 
+        var x = document.getElementById("blastSound");
+
+        function playAudio() {
+            x.play();
+        }
+
+        function pauseAudio() {
+            x.pause();
+          }
+
         var explosionClass = 'explode';
 
         if (playerShip) {
@@ -230,6 +240,7 @@ var boreDOM = {
         }
 
         $('<div class="' + explosionClass + '"><img src="./assets/images/explosion.gif"></div>').appendTo('body').each(function () {
+            pauseAudio();
             var explosion = $(this);
             explosion.css({
                 left: lefPosition + 50,
@@ -239,6 +250,9 @@ var boreDOM = {
             setTimeout(function () {
                 explosion.remove();
             }, 1700);
+
+            playAudio();
+
         });
     },
 

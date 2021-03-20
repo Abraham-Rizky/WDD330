@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Star Wars App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+
+</head>
+
+<body>
+  <main class="main-page">
+    <div class="logo">
+      <!-- <img src="/images/darth-vader.svg" alt="Star Wars Logo"> -->
+      <audio id="my_audio" src="./audio/give-yourself.mp3"></audio>
+    </div>
+
+    <div id="titles">
+      <div id="titlecontent">
+        <h2>Episode IV</h2>
+        <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory
+          against the evil Galactic Empire.</p>
+        <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR,
+          an armored space station with enough power to destroy an entire planet.</p>
+        <p class="margin-bottom-scrolling">Pursued by the Empire’s sinister agents, Princess Leia races home aboard her
+          starship, custodian of the
+          stolen plans that can save her people and restore freedom to the galaxy…</p>
+        <h2>Episode V</h2>
+        <p>It is a dark time for the Rebellion. Although the Death Star has been destroyed, Imperial troops have driven
+          the Rebel forces from their hidden base and pursued them across the galaxy.</p>
+        <p>Evading the dreaded Imperial Starfleet, a group of freedom fighters led by Luke Skywalker has established a
+          new secret base on the remote ice world of Hoth.
+        </p>
+        <p class="margin-bottom-scrolling">The evil lord Darth Vader, obsessed with finding young Skywalker, has
+          dispatched thousands of remote probes
+          into the far reaches of space….
+        </p>
+        <h2>Episode VI</h2>
+        <p>Luke Skywalker has returned to his home planet of Tatooine in an attempt to rescue his friend Han Solo from
+          the clutches of the vile gangster Jabba the Hutt.</p>
+        <p>Little does Luke know that the GALACTIC EMPIRE has secretly begun construction on a new armored space station
+          even more powerful than the first dreaded Death Star.
+        </p>
+        <p class="margin-bottom-scrolling">When completed, this ultimate weapon will spell certain doom for the small
+          band of rebels struggling to
+          restore freedom to the galaxy...
+        </p>
+        <h2>Episode I</h2>
+        <p>Turmoil has engulfed the Galactic Republic. The taxation of trade routes to outlying star systems is in
+          dispute.</p>
+        <p>Hoping to resolve the matter with a blockade of deadly battleships, the greedy Trade Federation has stopped
+          all shipping to the small planet of Naboo.</p>
+        <p class="margin-bottom-scrolling">While the congress of the Republic endlessly debates this alarming chain of
+          events, the Supreme Chancellor
+          has secretly dispatched two Jedi Knights, the guardians of peace and justice in the galaxy, to settle the
+          conflict....</p>
+        <h2>Episode II</h2>
+        <p class="margin-bottom-scrolling">There is unrest in the Galactic Senate. Several thousand solar systems have
+          declared their intentions to
+          leave the Republic. This separatist movement, under the leadership of the mysterious Count Dooku, has made it
+          difficult for the limited number of Jedi Knights to maintain peace and order in the galaxy. Senator Amidala,
+          the former Queen of Naboo, is returning to the Galactic Senate to vote on the critical issue of creating an
+          ARMY OF THE REPUBLIC to assist the overwhelmed Jedi....</p>
+        <h2>Episode III</h2>
+        <p class="margin-bottom-scrolling">War! The Republic is crumbling under attacks by the ruthless Sith Lord, Count
+          Dooku. There are heroes on both
+          sides. Evil is everywhere. In a stunning move, the fiendish droid leader, General Grievous, has swept into the
+          Republic capital and kidnapped Chancellor Palpatine, leader of the Galactic Senate. As the Separatist Droid
+          Army attempts to flee the besieged capital with their valuable hostage, two Jedi Knights lead a desperate
+          mission to rescue the captive Chancellor...</p>
+      </div>
+    </div>
+
+    <nav class="navigation" id="navbar">
+      <a href="./chars.html">List of Characters</a>
+      <a href="./trivia-module/trivia.html">Trivia Game</a>
+      <a href="./shooter-module/shooter.html">Space Shooters</a>
+    </nav>
+
+    <audio id="mySoundClip">
+      <source src="./audio/others/light-saber-swing-1.mp3">
+      </source>
+      Your browser isn't invited for super fun audio time.
+    </audio>
+  </main>
+  <script src="./main.js" type="module"></script>
+  <script>
+    window.onload = function () {
+      var audionameslist = "./audio/give-yourself.mp3,./audio/theme-song.mp3";
+      var audionamesarray = audionameslist.split(',');
+      var audio = new Audio(audionamesarray[0]);
+
+      audio.src = audionamesarray[0];
+      audio.play();
+
+      index = 0;
+      audio.onended = function () {
+        if (index < audionamesarray.length) {
+          audio.src = audionamesarray[index + 1];
+          audio.play();
+          index++;
+        }
+      };
+    }
+  </script>
+</body>
+
+</html>
