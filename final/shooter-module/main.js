@@ -96,8 +96,8 @@ var boreDOM = {
 
 
             // Fire on space down
+            
             if (event.which == 32 && fired == false) {
-
                 switch (boreDOM.upgrade) {
                     case 'one-canon':
                         $(bullet).appendTo('body').each(function () {
