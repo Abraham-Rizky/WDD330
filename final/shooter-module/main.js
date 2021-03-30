@@ -50,6 +50,8 @@ var boreDOM = {
             return newValue < 0 ? 0 : newValue > maxValue ? maxValue : newValue;
         }
 
+        // Arrow left and right
+
         $(window).keydown(function (event) {
             if (event.which == 37) {
                 $('#ship').css({
@@ -65,6 +67,21 @@ var boreDOM = {
             keysPressed[event.which] = true;
 
         });
+
+        $('#left-button').on('mousedown', () => {
+            $('#ship').css({
+                'background-position': 'left'
+            });
+            keysPressed[37] = true;
+        });
+
+        $('#right-button').on('mousedown', () => {
+            $('#ship').css({
+                'background-position': 'right'
+            });
+            keysPressed[39] = true;
+        });
+
         $(window).keyup(function (event) {
             if (event.which == 37 || event.which == 39) {
                 $('#ship').css({
@@ -73,6 +90,22 @@ var boreDOM = {
             }
             keysPressed[event.which] = false;
         });
+
+        $('#left-button').on('mouseup', () => {
+            $('#ship').css({
+                'background-position': 'center'
+            });
+            keysPressed[37] = false;
+        });
+
+        $('#right-button').on('mouseup', () => {
+            $('#ship').css({
+                'background-position': 'center'
+            });
+            keysPressed[39] = false;
+        });
+
+
 
         setInterval(function () {
             ship.css({
@@ -189,7 +222,7 @@ var boreDOM = {
         }); // Reload canon on key release
 
         $('#fire').on('click', () => {
-                fired = false;
+            fired = false;
         });
 
 
