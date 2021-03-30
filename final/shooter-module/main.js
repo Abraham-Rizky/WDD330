@@ -96,8 +96,52 @@ var boreDOM = {
 
 
             // Fire on space down
-            
             if (event.which == 32 && fired == false) {
+                switch (boreDOM.upgrade) {
+                    case 'one-canon':
+                        $(bullet).appendTo('body').each(function () {
+                            var bullet = $(this);
+                            var shipOffset = $(ship).offset();
+                            bullet.css({
+                                'left': shipOffset.left + 54,
+                                'top': shipOffset.top - 15
+                            });
+
+                            animateBullet(bullet);
+                        });
+                        break;
+                    case 'two-canons':
+                        $(bullet).appendTo('body').each(function () {
+                            var bullet = $(this);
+                            var shipOffset = $(ship).offset();
+                            bullet.css({
+                                'left': shipOffset.left + 26,
+                                'top': shipOffset.top + 25
+                            });
+
+                            animateBullet(bullet);
+                        });
+                        $(bullet).appendTo('body').each(function () {
+                            var bullet = $(this);
+                            var shipOffset = $(ship).offset();
+                            bullet.css({
+                                'left': shipOffset.left + 84,
+                                'top': shipOffset.top + 25
+                            });
+
+                            animateBullet(bullet);
+                        });
+                        break;
+                }
+                fired = true;
+            }
+        });
+
+        $('#fire').on('click', () => {
+
+
+            // Fire when button is clicked
+            if (fired == false) {
                 switch (boreDOM.upgrade) {
                     case 'one-canon':
                         $(bullet).appendTo('body').each(function () {
@@ -144,10 +188,14 @@ var boreDOM = {
             }
         }); // Reload canon on key release
 
+        $('#fire').on('click', () => {
+                fired = false;
+        });
+
 
 
         function animateBullet(bullet) {
-            if ($('.enemy-1').length > 0) { // Chek collision only if there is an enemy ship	
+            if ($('.enemy-1').length > 0) { // Check collision only if there is an enemy ship	
                 bullet.animate({
                     top: '-3000px'
                 }, {
@@ -231,7 +279,7 @@ var boreDOM = {
 
         function pauseAudio() {
             x.pause();
-          }
+        }
 
         var explosionClass = 'explode';
 
